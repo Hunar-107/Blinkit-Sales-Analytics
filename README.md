@@ -1,16 +1,12 @@
 # Blinkit — Retail Sales & Customer Analytics
 
 ## Project Overview
-This project explores a synthetic retail dataset modeled on Blinkit, an Indian quick-commerce platform, covering transactions from March 2023 to November 2024. The objective is to evaluate business performance, understand product demand and identify opportunities to improve customer retention.
-
-The analysis uses PostgreSQL across four relational tables, with Microsoft Excel for executive dashboard reporting.
+This project explores a retail dataset modeled on Blinkit, an Indian quick-commerce platform, covering transactions from March 2023 to November 2024. The objective is to evaluate business performance, understand product demand and identify opportunities to improve customer retention.
 
 ## Executive Summary
 - **Customer retention presents a potential growth opportunity.** Monthly repeat-purchase rates generally range between 8% and 10%, suggesting an opportunity to investigate customer reactivation.
 - **Sales volume alone is insufficient for evaluating products.** Correlation between revenue and quantity ranks decreases from 0.965 at the product-type level to 0.770 at the SKU level.
 - **Revenue is relatively diversified.** No category contributes more than 12% of revenue; the five leading categories account for approximately 51.3%.
-
-Data validation also identified significant discrepancies between order-level and item-level revenue.
 
 ## Business Performance Dashboard
 
@@ -69,19 +65,12 @@ These rates measure purchasing activity in individual months, not permanent cust
 
 **Recommendation:** Investigate purchasing frequency across customer segments and test targeted reactivation campaigns, measuring repeat purchases and incremental revenue.
 
-## 4. Data Validation and Limitations
-- Order-level revenue totaled ₹1.10 crore, while item quantities multiplied by unit prices totaled ₹49.72 lakh. Revenue reporting therefore uses order totals consistently.
-- Each observed order has one order-item record, allowing order revenue to be attributed to products without duplicating order totals in this dataset.
-- Precomputed customer purchasing metrics did not consistently match observed transactions; customer purchasing metrics were calculated from orders.
-- Partial calendar months were excluded from the monthly revenue chart but retained in overall totals. The incomplete final month may understate retention, especially at later cohort ages.
-- The original SQL scripts preserve the exploratory workflow. Monthly LAG ordering is not explicitly guaranteed, and positive revenue-rank-minus-quantity-rank differences indicate stronger relative quantity rankings, not stronger relative revenue rankings. No individual SKU conclusions are drawn from those labels. Some dashboard outputs were extracted from intermediate query results.
-
-The dataset is synthetic; findings demonstrate analytical methodology rather than verified conclusions about Blinkit's actual operations.
-
-## 5. Technical Implementation
+## 4. Technical Implementation
 **Tools:** PostgreSQL, Microsoft Excel, Visual Studio Code.
 
 SQL techniques include multi-table joins, aggregations, CTEs, window functions, partitioned rankings, month-over-month analysis, rank correlation, customer segmentation and eligibility-adjusted cohort retention.
 
 ## Data Source
+The dataset is modeled on Blinkit and is not verified company operational data. Revenue figures use order-level totals.
+
 [Blinkit Sales Dataset — Kaggle](https://www.kaggle.com/datasets/akxiit/blinkit-sales-dataset)
